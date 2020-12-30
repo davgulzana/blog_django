@@ -1,4 +1,12 @@
-{{ post.title }}
-{{ post.text }}
-{{ post.author }}
-{{ post.category }}
+{% extends 'includes/base.html' %}
+{% load static %}
+
+{% block body %}
+<h1>{{ post.title }}</h1>
+<p>{{ post.text }} </p>
+{% if post.image %}<img height="200" src="{{ post.image.url }}"> {% endif %}
+<p>Опубликовано: {{ post.created_at }}</p>
+<p>{{ post.author }}</p>
+<a href="{% url 'update-post' post.id %}">Изменить</a>
+<a href="{% url 'delete-post' post.id %}">Удалить</a>
+{% endblock body %}

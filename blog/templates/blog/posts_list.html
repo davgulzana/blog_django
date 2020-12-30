@@ -1,3 +1,10 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+
+{% block body %}
+<h1>Список публикаций</h1>
+<a role="button" class="btn btn-success" href="{% url 'add-post' %}"> + Добавить</a> <br>
 {% for post in posts %}
-    {{ post.title }}
+    <a href="{% url 'post-detail' pk=post.id %}">{{ post.title }}</a> <br>
 {% endfor %}
+{% endblock body %}

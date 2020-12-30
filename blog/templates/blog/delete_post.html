@@ -1,0 +1,10 @@
+{% extends 'includes/base.html' %}
+{% load static %}
+
+{% block body %}
+<h1>Вы действительно хотите удалить пост {{object.title}}?</h1>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Удалить</button>
+</form>
+{% endblock body %}
